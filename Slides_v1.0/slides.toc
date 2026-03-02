@@ -1,9 +1,0 @@
-\beamer@sectionintoc {1}{Intro}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{summary}{2}{0}{1}
-\beamer@subsectionintoc {1}{2}{who am i}{4}{0}{1}
-\beamer@sectionintoc {2}{PVE}{6}{0}{2}
-\beamer@sectionintoc {3}{UV}{22}{0}{3}
-\beamer@sectionintoc {4}{Jupyter notbooks pros/cons}{73}{0}{4}
-\beamer@sectionintoc {5}{Marimo main aspects}{88}{0}{5}
-\beamer@subsectionintoc {5}{1}{PurePython}{88}{0}{5}
-\beamer@sectionintoc {6}{Marimo notebook examples}{121}{0}{6}
