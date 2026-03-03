@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-uv\PYG{+w}{ }add\PYG{+w}{ }\PYG{n+nv}{module\PYGZus{}name}\PYG{o}{==}version\PYGZus{}number\PYG{+w}{    }\PYG{c+c1}{\PYGZsh{} excatly this version}
-uv\PYG{+w}{ }add\PYG{+w}{ }module\PYGZus{}name\PYGZgt{}\PYG{o}{=}version\PYGZus{}number\PYG{+w}{    }\PYG{c+c1}{\PYGZsh{} at lest this version}
-uv\PYG{+w}{ }add\PYG{+w}{ }module\PYGZus{}name\PYGZgt{}\PYG{o}{=}n1,\PYGZlt{}n2\PYG{+w}{            }\PYG{c+c1}{\PYGZsh{} between n1 and n2}
-\end{Verbatim}

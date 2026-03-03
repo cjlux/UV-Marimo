@@ -1,4 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{n}{uv} \PYG{n}{add} \PYG{n}{marimo}       \PYG{c+c1}{\PYGZsh{} installs the marimo module within the virt. env.}
-\PYG{n}{uv} \PYG{n}{run} \PYG{n}{marimo} \PYG{n}{edit}  \PYG{c+c1}{\PYGZsh{} runs marimo editor within your favorite web browser}
-\end{Verbatim}

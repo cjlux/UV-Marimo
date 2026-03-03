@@ -1,82 +1,104 @@
 import marimo
 
-__generated_with = "0.13.15"
+__generated_with = "0.20.2"
 app = marimo.App(width="medium")
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""# Interactive widgets (UI elements)""")
+    mo.md(r"""
+    # Interactive widgets (UI elements)
+    """)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Slider""")
+    mo.md(r"""
+    ## 1 - The `Slider` widget
+    """)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""### Simple usage""")
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""### Variation using the *cell output* (visual output)""")
+    mo.md(r"""
+    ### 🌈 Simple usage
+    """)
     return
 
 
 @app.cell
 def _(mo):
-    s = mo.ui.slider(1,10)
-    s
-    return (s,)
+    s1 = mo.ui.slider(1,10)
+    s1    # last line of a cell is always displayed as the "cell visual"
+    return (s1,)
 
 
 @app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""**print(...)** displays data using the *console output* (display updates flash a bit)""")
-    return
-
-
-@app.cell
-def _(s):
-    print(f"value of the 's' slider: {s.value}")
+def _(mo, s1):
+    mo.md(f"""
+    f-strings are allowed within Makdwon cells $\leadsto$ check the 'f' case bellow the cell code  frame...<br>
+    sliber _s1_ value: {s1.value}
+    """)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    s2 = mo.ui.slider(1,10,2)
-    mo.md(f"Choose a value : {s2}")
+    mo.md(r"""
+    ### ⚠️ `print` statement causes some flashes...
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    s2 = mo.ui.slider(1,10)
+    s2
     return (s2,)
 
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(
-        r"""
-    /// details | **cell last line** displays data using the *cell output* 
-
-    Using *markdown* in the last line gives smoother display update
-
-    ///
-    """
-    )
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo, s2):
-    mo.md(f"""slider 's2' value: {s2.value}""")
+@app.cell
+def _(s2):
+    # print(...) displays data using the *console output* (display updates flash a bit)
+    print(f"value of the 's1' slider: {s2.value}")
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""## Date""")
+    mo.md(r"""
+    ### 🎂 Usage of `mo.hstack(...)` to horizonthaly concatenate objects
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    slider_mass = mo.ui.slider(start=1, stop=110, label="Mass", value=50)
+    return (slider_mass,)
+
+
+@app.cell
+def _(mo, slider_mass):
+    mo.hstack([slider_mass, mo.md(f"Mass: {slider_mass.value:3d} kg")], justify='start')
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    Other -marimo_ layout widhets here: https://docs.marimo.io/api/layouts/
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## 2 - The `Date` widget
+    """)
     return
 
 
@@ -96,9 +118,31 @@ def _(dates):
     return
 
 
+@app.cell
+def _(dates, mo):
+    mo.md(rf"""
+    {dates['start']}
+    """)
+    return
+
+
+@app.cell
+def _(dates):
+    {dates['start'].value}
+    return
+
+
+@app.cell
+def _(dates):
+    print(dates['start'].value)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""Other marimo input here : https://docs.marimo.io/api/inputs/""")
+    mo.md(r"""
+    Other marimo input here : https://docs.marimo.io/api/inputs/
+    """)
     return
 
 
@@ -106,7 +150,7 @@ def _(mo):
 def _():
     import marimo as mo
     import numpy as np
-    from matplotlib.pyplot import plot
+
     return (mo,)
 
 

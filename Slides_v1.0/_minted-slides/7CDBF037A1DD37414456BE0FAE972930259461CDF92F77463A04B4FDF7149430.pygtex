@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-powershell\PYG{+w}{ }\PYGZhy{}ExecutionPolicy\PYG{+w}{ }ByPass\PYG{+w}{ }\PYGZhy{}c\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}irm https://astral.sh/uv/install.ps1 | iex\PYGZdq{}}
-\end{Verbatim}

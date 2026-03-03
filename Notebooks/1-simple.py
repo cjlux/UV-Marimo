@@ -1,19 +1,15 @@
 import marimo
 
-__generated_with = "0.13.15"
-app = marimo.App(width="medium")
+__generated_with = "0.20.2"
+app = marimo.App(width="medium", layout_file="layouts/1-simple.slides.json")
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""Simple marimo notebook to show the content of the Python file""")
+    mo.md(r"""
+    Simple marimo notebook to show the content of the Python file
+    """)
     return
-
-
-@app.cell
-def _():
-    import numpy as np
-    return (np,)
 
 
 @app.cell
@@ -30,8 +26,10 @@ def _(x):
 
 @app.cell
 def _():
+    import numpy as np
     import marimo as mo
-    return (mo,)
+
+    return mo, np
 
 
 if __name__ == "__main__":

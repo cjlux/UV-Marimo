@@ -220,7 +220,7 @@
     \phantom{$\leadsto$ }{\bf isolated}, {\bf dedicated}, {\bf persistent} environment:
     \medskip
     \begin{itemize}\setlength\itemsep{5mm}
-    \item<2-> containing a specific installation of Python  
+    \item<2-> containing a specific installation of the Python interpreter and modules  
     \item<3-> {\bf independent} of other Python installations likely to coexist on the same machine
     \item<4-> {\bf independent} of computer updates. 
     \end{itemize}
@@ -372,7 +372,7 @@ uv init
 \begin{frame}[fragile]{UV $\leadsto$ the new Python project/PVE manager}
 
   \begin{minipage}[t][][t]{1.\textwidth}
-    \begin{tcolorbox}[title=Command: \boldtt{uv init  [dir] --python}\hfill $\leadsto$ \boldtt{uv init [dir] -p}, add to width=5mm]
+    \begin{tcolorbox}[title=Command: \boldtt{uv init  [dir] -p}, add to width=5mm]
       \begin{itemize}\setlength\itemsep{1mm}
       \item To choose the version of the PVE's Python interpreter
       \item Create a project directory with a PVE inside:
@@ -577,14 +577,14 @@ uv run command
       \item<3-> For example: \href{https://github.com/cjlux/UV-Marimo_at_I2M}{UV-Marimo\_at\_I2M}
         
       \item<4-> Clone the repository (\mintinline{bash}{git clone ....})\\
-        or download the ZIP
+        or download the ZIP (green button [Code V])
         
-      \item<5-> Go to the root directoey of the repository and synchronize the PVE to download and install all the required Python modules:
+      \item<5-> Go to the root directory of the repository and synchronize the PVE to download and install all the required Python modules:
         \begin{minted}[fontsize=\fontsize{11}{11}\selectfont, bgcolor=VeryLightYellow]{bash}
 cd <path_to>/UV-Marimo_at_I2M
 uv sync
         \end{minted}
-      \item Read the REDAME...
+      \item Read the README...
       \end{itemize}
     \end{minipage}\begin{minipage}[t][][b]{.1\textwidth}
     \end{minipage}
@@ -593,20 +593,22 @@ uv sync
 \end{frame}
 %==============================================================
 
-\section{Jupyter notbooks pros/cons}
+\section{Marimo notebooks}
+
 %================ # 18 ========================================
 \begin{frame}{Jupyter notebooks {\em pros/cons}}
 
-  %%\vspace*{-3mm}
-  \begin{minipage}{.5\textwidth}
+  \hspace*{-5mm}
+  \begin{minipage}{.6\textwidth}
   some people don't like working with Jupyter notebooks... \cite{Grus1}\\
-  \end{minipage} \begin{minipage}{.45\textwidth}
+  \end{minipage} \begin{minipage}{.4\textwidth}
     \href{https://www.youtube.com/watch?v=7jiPeIFXb6U}{\includegraphics[width=1.1\textwidth]{images/I_dont_like_notebooks.png}}
     \smallskip
   \end{minipage}
-  \begin{minipage}{.5\textwidth}
+  \hspace*{-5mm}
+  \begin{minipage}{.6\textwidth}
     and some people do like... \cite{Howard1}
-  \end{minipage} \begin{minipage}{.45\textwidth}
+  \end{minipage} \begin{minipage}{.4\textwidth}
     \href{https://www.youtube.com/watch?v=9Q6sLbz37gk}{\includegraphics[width=1.1\textwidth]{images/I_like_notebooks.png}}
     \smallskip
   \end{minipage}
@@ -650,7 +652,7 @@ uv sync
     
     \begin{itemize}\setlength\itemsep{3mm}
 
-    \item<2-> {\bf Hidden state} if you delete a cell, its variables stay in memory, which other cells may still reference $\leadsto$ reproducibility issues.
+    \item<2-> {\bf Hidden state} delete a variable in a cell: it stays in memory, and other cells may still silently refer this variable...
       
     \item<3-> {\bf Lack of reproducibility} the code you see doesn't necessarily match the outputs on the page or the program state.
       
@@ -668,8 +670,6 @@ uv sync
 
 %\iffalse
 
-\section{Marimo main aspects}
-
 \subsection{PurePython}
 
 %================ # 21 ========================================
@@ -679,57 +679,68 @@ uv sync
     \href{https://docs.marimo.io/}{\includegraphics[width=\textwidth]{images/Logo_marimo.png}}\\
     \href{https://docs.marimo.io/}{docs.marimo.io}
   \end{minipage}\hfill\begin{minipage}{.68\textwidth}
-                {\em "marimo notebook: a reinvention of the Jupyter notebook as a reproducible, \\reactive,
-                  interactive, and shareable Python \\program that can be executed as scripts or deployed as interactive web apps"}
+          {\em "marimo notebook: a reinvention of the Jupyter notebook as a reproducible, \\reactive,
+            interactive, and shareable Python \\program that can be executed as scripts or deployed as interactive web apps"}
   \end{minipage}
-  
+
   \visible<2->{
     \begin {bclogo}[noborder=true, couleur=gray!20, couleurBarre=Chocolate, logo=\raisebox{1mm}{\,\huge😇}, marge=0, margeG=-0.5, margeD=-0.5]
       {\ \DarkChocolate{Advantages...}}\smallskip
-      
       \begin{itemize}\setlength\itemsep{3mm}
-        
-      \item<3-> Only pure Python code in a marimo notebook!
-
-        \begin{itemize}\setlength\itemsep{2mm}
-        \item<7-> Cell outputs are not stored in the notebook
+      \item<2-> Only pure Python code in a marimo notebook!
+        \begin{itemize}
+        \item<2-> Cell outputs are not stored in the notebook
         \end{itemize}
-      
-      \item<8-> Cells dependency is defined as a DAG (Directed Acyclic Graph) 
-          
-        \begin{itemize}\setlength\itemsep{2mm}
-        \item<10-> At notebook startup all cells are executed to give the outputs,\\
-        in the order of their dependencies, not the order they appear.
+      \item<9-> Cells dependency is defined as a DAG (Directed Acyclic Graph) 
+        \vspace*{-4mm}\begin{itemize}
+        \item<11-> At notebook startup all cells are executed to give the outputs,\\
+          in the order of their dependencies, not the order they appear.
         \end{itemize}
-        
       \end{itemize}
-
     \end{bclogo}
+  }
+    
+  \only<3-6>{
+    \vspace*{-70mm}\hspace*{-10mm}
+    \begin{minipage}{0.9\linewidth}
+      \fcolorbox{DarkChocolate}{white}{\includegraphics[width=1.\textwidth]{images/simple_notebook_jupyter.png}}
+    \end{minipage}
+  }
 
-    \only<4>{
-      \vspace*{-70mm}\hspace*{-10mm}
-      \begin{minipage}{0.9\linewidth}
-          \fcolorbox{DarkChocolate}{white}{\includegraphics[width=1.\textwidth]{images/simple_notebook.png}}
-      \end{minipage}
-    }
+  \only<4>{
+    \begin{minipage}{0.9\linewidth}
+      \vspace*{-70mm}\hspace*{45mm}\fcolorbox{DarkChocolate}{white}{\includegraphics[width=.7\textwidth]{images/simple_notebook_ipynb-1.png}}
+    \end{minipage}
+  }
+  \only<5>{
+    \begin{minipage}{0.9\linewidth}
+      \vspace*{-66mm}\hspace*{45mm}\fcolorbox{DarkChocolate}{white}{\includegraphics[width=.56\textwidth]{images/simple_notebook_ipynb-2.png}}
+    \end{minipage}
+  }
+  \only<6>{
+    \begin{minipage}{0.9\linewidth}
+      \vspace*{-73mm}\hspace*{45mm}\fcolorbox{DarkChocolate}{white}{\includegraphics[width=.5\textwidth]{images/simple_notebook_ipynb-3.png}}
+    \end{minipage}
+  }
 
-    \only<5>{
-      \vspace*{-64mm}\hspace*{-10mm}
-      \begin{minipage}{0.9\linewidth}
-          \fcolorbox{DarkChocolate}{white}{\includegraphics[width=1.\textwidth]{images/simple_notebook.png}}
-      \end{minipage}
-      \begin{minipage}{0.9\linewidth}
-          \vspace*{-79mm}\hspace*{45mm}\fcolorbox{DarkChocolate}{white}{\includegraphics[width=.8\textwidth]{images/simple_notebook_py.png}}
-      \end{minipage}
-    }
+  \only<7-8>{
+    \vspace*{-60mm}\hspace*{-10mm}
+    \begin{minipage}{0.9\linewidth}
+      \fcolorbox{DarkChocolate}{white}{\includegraphics[width=1.\textwidth]{images/simple_notebook_marimo.png}}
+    \end{minipage}
+  }
 
-    \only<9>{
-      \vspace*{-61mm}\hspace*{-5mm}
-      \begin{minipage}{0.9\linewidth}
-          \includegraphics[width=1.2\textwidth, cfbox=DarkChocolate .5pt 0pt]{images/DAG.png}\\[-1mm]\hspace*{5cm}{\tiny image from \cite{vey1}}
-      \end{minipage}
-    }
-
+  \only<8>{
+    \begin{minipage}{0.9\linewidth}
+      \vspace*{-75mm}\hspace*{45mm}\fcolorbox{DarkChocolate}{white}{\includegraphics[width=.65\textwidth]{images/simple_notebook_py.png}}
+    \end{minipage}
+  }
+  
+  \only<10>{
+    \vspace*{-55mm}\hspace*{0mm}
+    \begin{minipage}{0.9\linewidth}
+      \includegraphics[width=1.\textwidth, cfbox=DarkChocolate .5pt 0pt]{images/DAG.png}\\[-1mm]\hspace*{5cm}{\tiny image from \cite{vey1}}
+    \end{minipage}
   }
 
 \end{frame}
@@ -777,8 +788,8 @@ uv sync
     \item Rich library of UI elements:
       
       \begin{itemize}\setlength\itemsep{1mm}        
-      \item<2-> Input UI elements: slider, date, number, dropdown, file brower, butto, check button, radio button...
-      \item<3-> Layout UI elements: tab, array, accordion, vstack, hstack...
+      \item<2-> \href{https://docs.marimo.io/api/inputs/}{Input UI elements}: slider, date, number, dropdown, file brower, button, check button, radio button...
+      \item<3-> \href{https://docs.marimo.io/api/layouts/}{Layout UI elements}: tab, array, accordion, vstack, hstack...
       \end{itemize}
 
     \item<4-> UI elements are automatically synchronized with the notebook code:
@@ -834,13 +845,13 @@ uv sync
   \end{bclogo}
 
   \only<8>{
-    \vspace*{-58mm}\hspace*{-5mm}%
+    \vspace*{-55mm}\hspace*{-5mm}%
     \begin{minipage}{0.9\linewidth}
         {\includegraphics[width=1.2\textwidth, cfbox=DarkChocolate .5pt 0pt]{images/user_settings-autorun_on_startup.png}}
     \end{minipage}
   }
   \only<12>{
-    \vspace*{-58mm}\hspace*{-5mm}%
+    \vspace*{-55mm}\hspace*{-5mm}%
     \begin{minipage}{0.9\linewidth}
         {\includegraphics[width=1.2\textwidth, cfbox=DarkChocolate .5pt 0pt]{images/user_settings-cell_change_lazy.png}}
     \end{minipage}
@@ -849,8 +860,6 @@ uv sync
 \end{frame}
 %==============================================================
 
-\section{Marimo notebook examples}
-
 %================ # 25 ========================================
 \begin{frame}[fragile]{}
 
@@ -858,23 +867,22 @@ uv sync
     {\ \DarkChocolate{Marimo installation \& run}}
     \smallskip
 
-    \begin{itemize}\setlength\itemsep{2mm}
+    \begin{itemize}\setlength\itemsep{3mm}
       
       \item marimo installation with \codeBF{uv} (see \href{https://docs.astral.sh/uv/}{docs.astral.sh/uv/})
-      \vspace*{-3mm}\hspace*{-5mm}%
       \begin{minted}[fontsize=\fontsize{8}{8}\selectfont, bgcolor=VeryLightYellow]{Python}
 uv add marimo       # installs the marimo module within the virt. env.
 uv run marimo edit  # runs marimo editor within your favorite web browser
       \end{minted}
 
       \item marimo installation with \codeBF{pip}
-      \vspace*{-3mm}\begin{minted}[fontsize=\fontsize{7}{7}\selectfont, bgcolor=VeryLightYellow]{Python}
+      \begin{minted}[fontsize=\fontsize{7}{7}\selectfont, bgcolor=VeryLightYellow]{Python}
 pip install marimo
 marimo edit
       \end{minted}
 
-      \item marimo installation with \codeBF{conda} (universal virtualenv)
-      \vspace*{-3mm}\begin{minted}[fontsize=\fontsize{7}{7}\selectfont, bgcolor=VeryLightYellow]{Python}
+      \item marimo installation with \codeBF{conda}
+      \begin{minted}[fontsize=\fontsize{7}{7}\selectfont, bgcolor=VeryLightYellow]{Python}
 conda install -c conda-forge marimo
 marimo edit
       \end{minted}
@@ -891,15 +899,13 @@ marimo edit
 
   \begin {bclogo}[noborder=true, couleur=gray!20, couleurBarre=Chocolate, logo=\raisebox{1mm}{\,\huge{⚙}}, margeG=-0.5, margeD=-0.5]
     {\ \DarkChocolate{Marimo notebooks examples}}
-    \smallskip
-
-    \begin{itemize}\setlength\itemsep{3mm}
+    \bigskip
+    In the \file{Notebooks} directory of the repository:
+    \begin{itemize}\setlength\itemsep{5mm}
     \item \file{1-simple.py}
     \item \file{2-reactive.py}
     \item \file{3-interactive.py}
     \item \file{4-interactive-plot.py}
-    \item \file{5-ML.py}
-    \item \file{5-ML\_diskcache.py}
     \end{itemize}
   \end{bclogo}
 
@@ -950,7 +956,7 @@ To adapt to the restriction, we suggest:
     - Prefixing temporary variables with an underscore (_my_temporary), which makes the variable local to a cell.
     - Mutating variables in the cell that defines them.
 
-Missing pakges : qoand on ouvre un notebook.py eet qu'il manque des paquets...
+Missing pakages : qoand on ouvre un notebook.py eet qu'il manque des paquets...
 
 
 ====================================
