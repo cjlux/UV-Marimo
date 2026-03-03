@@ -26,4 +26,8 @@ SandBox/
 *.brf
 *~
 .ipynb_checkpoints/
+_minted-slides/
+_minted-slides_animated/
+__marimo__/
+
 
